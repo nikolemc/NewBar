@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace McStanleyBar.ViewModels
 {
-    public class EventsViewModel
+    public class HomePageViewModel
     {
         public int Id { get; set; }
         public List<Events> Event { get; set; }

@@ -7,13 +7,13 @@ namespace McStanleyBar.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class McStanleyBarInitial : IMigrationMetadata
+    public sealed partial class AddImage : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(McStanleyBarInitial));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddImage));
         
         string IMigrationMetadata.Id
         {
-            get { return "201705021818231_McStanleyBarInitial"; }
+            get { return "201705021905126_AddImage"; }
         }
         
         string IMigrationMetadata.Source

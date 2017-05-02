@@ -207,9 +207,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201705021818231_McStanleyBarInitial.cs" />
-    <Compile Include="Migrations\201705021818231_McStanleyBarInitial.Designer.cs">
-      <DependentUpon>201705021818231_McStanleyBarInitial.cs</DependentUpon>
+    <Compile Include="Migrations\201705021905126_AddImage.cs" />
+    <Compile Include="Migrations\201705021905126_AddImage.Designer.cs">
+      <DependentUpon>201705021905126_AddImage.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -220,7 +220,7 @@
     <Compile Include="Models\Venues.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="ViewModels\EventsViewModel.cs" />
+    <Compile Include="ViewModels\HomePageViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -314,8 +314,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201705021818231_McStanleyBarInitial.resx">
-      <DependentUpon>201705021818231_McStanleyBarInitial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201705021905126_AddImage.resx">
+      <DependentUpon>201705021905126_AddImage.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

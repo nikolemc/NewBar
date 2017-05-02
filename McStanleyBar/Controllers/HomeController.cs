@@ -3,14 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
+using McStanleyBar.Models;
+using McStanleyBar.ViewModels;
 
 namespace McStanleyBar.Controllers
 {
     public class HomeController : Controller
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
+
+        // GET: Events
         public ActionResult Index()
         {
-            return View();
+            var events = db.Events.Include(e => e.Genre).Include(e => e.Venue).ToList();
+            var eventsToDisplay = new HomePageViewModel(){Event = events};
+            return View(eventsToDisplay);
         }
 
         public ActionResult About()

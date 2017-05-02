@@ -1,31 +1,37 @@
-﻿@{
+﻿@model McStanleyBar.ViewModels.HomePageViewModel
+
+@using Microsoft.AspNet.Identity;
+@{
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
-
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+<div class="container">
+    <div class="row">
+        <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
+            <ul class="event-list">
+                <li>
+                    <time datetime="2014-07-20">
+                        <span class="day">4</span>
+                        <span class="month">Jul</span>
+                        <span class="year">2014</span>
+                        <span class="time">ALL DAY</span>
+                    </time>
+                    <img alt="Independence Day" src="https://farm4.staticflickr.com/3100/2693171833_3545fb852c_q.jpg" />
+                    <div class="info">
+                        <h2 class="title">Independence Day</h2>
+                        <p class="venue">State Theter</p>
+                        <p class="genre">Rock</p>
+                        <p class="startTime">7pm</p>
+                    </div>
+                    <div class="social">
+                        <ul>
+                            <li class="facebook" style="width:33%;"><a href="#facebook"><span class="fa fa-facebook"></span></a></li>
+                            <li class="twitter" style="width:34%;"><a href="#twitter"><span class="fa fa-twitter"></span></a></li>
+                            <li class="google-plus" style="width:33%;"><a href="#google-plus"><span class="fa fa-google-plus"></span></a></li>
+                        </ul>
+                    </div>
+                </li>                
+            </ul>
+        </div>
     </div>
 </div>

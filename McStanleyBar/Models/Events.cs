@@ -12,6 +12,7 @@ namespace McStanleyBar.Models
         public string Title { get; set;}
         public DateTime? StartTime { get; set; }
         public DateTime? EndTime { get; set; }
+        public string Img { get; set; }
 
         public int GenreId { get; set; }
         [ForeignKey("GenreId")]
