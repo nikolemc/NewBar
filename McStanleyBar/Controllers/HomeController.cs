@@ -13,6 +13,8 @@ namespace McStanleyBar.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        //private string eventCacheKey = "event";
+
         // GET: Events
         public ActionResult Index()
         {
@@ -38,7 +40,7 @@ namespace McStanleyBar.Controllers
                     null,
                     DateTime.Now.AddDays(7),
                     new TimeSpan(),
-                    System.Web.Caching.CacheItemPriority.High,
+                    System.Web.Caching.CacheItemPriority.High, //High- means that it is one of the last things to be removed from the cache
                     null);
                 eventsFromCache = HttpRuntime.Cache["events"] as HomePageViewModel;
 

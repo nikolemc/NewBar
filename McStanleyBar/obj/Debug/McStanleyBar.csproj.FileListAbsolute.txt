@@ -100,3 +100,5 @@ C:\Users\Nikole McStanley\tiy\week-8\McStanleyBar\McStanleyBar\McStanleyBar\bin\
 C:\Users\Nikole McStanley\tiy\week-8\McStanleyBar\McStanleyBar\McStanleyBar\obj\Debug\McStanleyBar.csprojResolveAssemblyReference.cache
 C:\Users\Nikole McStanley\tiy\week-8\McStanleyBar\McStanleyBar\McStanleyBar\obj\Debug\McStanleyBar.dll
 C:\Users\Nikole McStanley\tiy\week-8\McStanleyBar\McStanleyBar\McStanleyBar\obj\Debug\McStanleyBar.pdb
+C:\Users\Nikole McStanley\tiy\week-8\McStanleyBar\McStanleyBar\McStanleyBar\obj\Debug\McStanleyBar.Migrations.update2.resources
+C:\Users\Nikole McStanley\tiy\week-8\McStanleyBar\McStanleyBar\McStanleyBar\obj\Debug\McStanleyBar.csproj.GenerateResource.Cache

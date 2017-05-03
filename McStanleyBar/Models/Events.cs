@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace McStanleyBar.Models
 {
@@ -10,8 +11,12 @@ namespace McStanleyBar.Models
     {
         public int Id { get; set; }
         public string Title { get; set;}
+
+        [Required]
+        [DataType(DataType.Date)]
         public DateTime? StartTime { get; set; }
         public DateTime? EndTime { get; set; }
+
         public string Img { get; set; }
 
         public int GenreId { get; set; }
