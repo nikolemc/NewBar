@@ -102,3 +102,4 @@ C:\Users\Nikole McStanley\tiy\week-8\McStanleyBar\McStanleyBar\McStanleyBar\obj\
 C:\Users\Nikole McStanley\tiy\week-8\McStanleyBar\McStanleyBar\McStanleyBar\obj\Debug\McStanleyBar.pdb
 C:\Users\Nikole McStanley\tiy\week-8\McStanleyBar\McStanleyBar\McStanleyBar\obj\Debug\McStanleyBar.Migrations.AddStartDate.resources
 C:\Users\Nikole McStanley\tiy\week-8\McStanleyBar\McStanleyBar\McStanleyBar\obj\Debug\McStanleyBar.csproj.GenerateResource.Cache
+C:\Users\Nikole McStanley\tiy\week-8\McStanleyBar\McStanleyBar\McStanleyBar\obj\Debug\McStanleyBar.Migrations.UpdateDatabase.resources

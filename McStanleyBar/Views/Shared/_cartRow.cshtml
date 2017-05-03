@@ -1,0 +1,17 @@
+﻿@model McStanleyBar.Models.Events
+
+<div class="row">
+    <div class="col-md-6">
+        @Model.Event
+    </div>
+    <div class="col-md-2">
+        @Model.Category.Name
+    </div>
+    <div class="col-md-2">
+        @Html.DisplayFor(m => m.Price, Model.Price)
+    </div>
+    <div class="col-md-2">
+        <button class="btn btn-danger" onclick="removeFromCart('@Model.TrackerId')"><i class="glyphicon glyphicon-remove"></i></button>
+    </div>
+</div>
+

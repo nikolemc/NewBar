@@ -28,41 +28,69 @@ namespace McStanleyBar.Controllers
             //var eventsToDisplay = new HomePageViewModel(){Event = events};
             //return View(eventsToDisplay);
 
-            var eventsFromCache = HttpRuntime.Cache["events"] as HomePageViewModel;
+            var eventsFromCache = HttpRuntime.Cache["events"] as IEnumerable<Events>; ;
             if (eventsFromCache == null)
             {
                 var events = db.Events.Include(e => e.Genre).Include(e => e.Venue).OrderBy(t => t.StartDate).ToList();
-                var eventsToDisplay = new HomePageViewModel(){Event = events};
                 // add the menu to cache
                 HttpRuntime.Cache.Add(
                     "events",
-                    eventsToDisplay,
+                    events,
                     null,
                     DateTime.Now.AddDays(7),
                     new TimeSpan(),
                     System.Web.Caching.CacheItemPriority.High, //High- means that it is one of the last things to be removed from the cache
                     null);
-                eventsFromCache = HttpRuntime.Cache["events"] as HomePageViewModel;
-
+                eventsFromCache = HttpRuntime.Cache["events"] as IEnumerable<Events>;
             }
-            return View(eventsFromCache);
+
+            var vm = new HomePageViewModel
+            {
+                Event = eventsFromCache,
+                ShoppingCart = Session["cart"] as Order ?? new Order()
+            };
+            return View(vm);
 
 
         }
-
-        
-        public ActionResult About()
+        [HttpPost]
+        public ActionResult ShoppingCart(int id)
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            var cart = Session["cart"] as Order;
+            if (cart == null)
+            {
+                // create a new cart
+                cart = new Order()
+                {
+                    Fulfilled = false,
+                    TimeCreated = DateTime.Now
+                };
+            }
+            // too get the item
+            var events = db.Events.Include(e => e.Genre).Include(e => e.Venue).FirstOrDefault(f => f.Id==id);
+            // add item select to shopping cart
+            cart.Items.Add(events);
+            Session["cart"] = cart;
+            return PartialView("_shoppingCart", cart);
         }
 
-        public ActionResult Contact()
+        [HttpDelete]
+        public ActionResult RemoveFromCart(string id)
         {
-            ViewBag.Message = "Your contact page.";
 
-            return View();
+            var cart = Session["cart"] as Order;
+            cart.Items = cart.Items.Where(w => w.TrackerId != Guid.Parse(id)).ToList();
+            return PartialView("_checkoutDisplayCart", cart);
         }
+
+
+        public ActionResult Checkout()
+        {
+            // Shopping Cart (order) as the model
+            var vm = Session["cart"] as Order;
+            return View(vm);
+        }
+
+
     }
 }

@@ -9,8 +9,12 @@ namespace McStanleyBar.Models
 {
     public class Events
     {
+        
         public int Id { get; set; }
         public string Title { get; set;}
+
+        [DisplayFormat(DataFormatString = "{0:C}")]
+        public double Price { get; set; }
 
         [Required]
         [DataType(DataType.Date)]
@@ -29,6 +33,13 @@ namespace McStanleyBar.Models
         public int VenueId { get; set; }
         [ForeignKey("VenueId")]
         public virtual Venues Venue { get; set; }
-        
+
+        [NotMapped]
+        public Guid TrackerId { get; set; } = Guid.NewGuid();
+
+        public ICollection<Order> Orders { get; set; }
+
+
+
     }
 }

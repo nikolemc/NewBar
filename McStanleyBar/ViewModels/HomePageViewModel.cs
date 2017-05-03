@@ -11,6 +11,7 @@ namespace McStanleyBar.ViewModels
     public class HomePageViewModel
     {
         public int Id { get; set; }
-        public List<Events> Event { get; set; }
+        public IEnumerable<Events> Event { get; set; }
+        public Order ShoppingCart { get; set; }
     }
 }

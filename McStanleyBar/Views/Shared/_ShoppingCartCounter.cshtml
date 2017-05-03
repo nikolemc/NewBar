@@ -1,0 +1,45 @@
+﻿@model McStanleyBar.Models.Events
+@using Microsoft.AspNet.Identity;
+
+@{
+    var addEventClass = "";
+    var removeEventClass = "";
+    var disabled = "";
+    <!--
+    if (Model.Votes.FirstOrDefault(f => f.UserId == User.Identity.GetUserId()) == null && )
+    {
+        upVoteClass = "up-clicked";
+    }
+    else if (Model.VoteValue == -1)
+    {
+        downVoteClass = "down-clicked";
+    }
+    -->
+    //if (!User.Identity.IsAuthenticated || Model.Title.FirstOrDefault(f => f.UserId == User.Identity.GetUserId()) != null)
+    //{
+    //    disabled = "disabled";
+    //}
+}
+
+
+<div class="cont">
+    <div class="crtdiv">
+        <span class="qty">
+            <span class="dec">
+                <i class="fa fa-minus-square" @addEventClass onclick="addEvent(@Model.Id);" @disabled aria-hidden="true"></i>  @*this is button for removing from cart*@
+            </span>
+            <span>
+              
+                    <span class="num count-@Model.Id">
+                        0
+                    </span>
+
+                
+            </span>
+            <span class="inc">
+                <i class="fa fa-plus-square"  @removeEventClass  onclick="removeEvent(@Model.Id);" aria-hidden="true"></i> @*this is button for incrasing number in cart*@
+            </span>
+        </span>
+        <button id="btn" type="button" class="cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Add to cart</button>
+    </div>
+</div>

@@ -11,6 +11,7 @@ namespace McStanleyBar
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/moment.js",
                          "~/Scripts/formatdate.js",
+                         "~/Scripts/shoppingcart.js",
                         "~/Scripts/jquery-{version}.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
@@ -26,8 +27,8 @@ namespace McStanleyBar
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/bootstrap.css", "~/Content/font-awesome.min.css",
+                       "~/Content/font-awesome.css", "~/Content/site.css"));
         }
     }
 }
