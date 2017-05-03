@@ -16,6 +16,12 @@ namespace McStanleyBar.Controllers
         // GET: Events
         public ActionResult Index()
         {
+            if (HttpContext.User.Identity.IsAuthenticated)
+            {
+                ViewBag.IsAdministrator = HttpContext.User.IsInRole("administrator");
+                ViewBag.IsGeneralUser = HttpContext.User.IsInRole("generalUser");
+            }
+
             //var events = db.Events.Include(e => e.Genre).Include(e => e.Venue).ToList();
             //var eventsToDisplay = new HomePageViewModel(){Event = events};
             //return View(eventsToDisplay);
@@ -23,7 +29,7 @@ namespace McStanleyBar.Controllers
             var eventsFromCache = HttpRuntime.Cache["events"] as HomePageViewModel;
             if (eventsFromCache == null)
             {
-                var events = db.Events.Include(e => e.Genre).Include(e => e.Venue).ToList();
+                var events = db.Events.Include(e => e.Genre).Include(e => e.Venue).OrderBy(t => t.StartTime).ToList();
                 var eventsToDisplay = new HomePageViewModel(){Event = events};
                 // add the menu to cache
                 HttpRuntime.Cache.Add(
@@ -42,6 +48,7 @@ namespace McStanleyBar.Controllers
 
         }
 
+        
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

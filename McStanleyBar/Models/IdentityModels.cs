@@ -35,5 +35,7 @@ namespace McStanleyBar.Models
         public System.Data.Entity.DbSet<McStanleyBar.Models.Genres> Genres { get; set; }
 
         public System.Data.Entity.DbSet<McStanleyBar.Models.Venues> Venues { get; set; }
+
+
     }
 }

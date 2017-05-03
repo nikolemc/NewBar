@@ -1,0 +1,24 @@
+﻿@using Microsoft.AspNet.Identity;
+@{
+    ViewBag.Title = "Administrator";
+}
+
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Event", "Index", "Events", null, new { @class = "btn btn-primary btn-large btn-admin" })
+
+
+</p>
+
+<p>
+    @Html.ActionLink("Genre", "Index", "Genres", null, new { @class = "btn btn-primary btn-large btn-admin" })
+</p>
+
+
+<p>
+    @Html.ActionLink("Venue", "Index", "Venues", null, new { @class = "btn btn-primary btn-large btn-admin" })
+
+</p>
+
