@@ -50,7 +50,7 @@ namespace McStanleyBar.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Title,StartTime,EndTime,GenreId,VenueId")] Events events)
+        public ActionResult Create([Bind(Include = "Title,StartTime,StartDate,GenreId,VenueId")] Events events)
         {
             if (ModelState.IsValid)
             {
@@ -60,7 +60,7 @@ namespace McStanleyBar.Controllers
                 HttpRuntime.Cache.Remove("events");
                 //re add to my chache
 
-                var all = db.Events.Include(e => e.Genre).Include(e => e.Venue).OrderBy(t => t.StartTime).ToList();
+                var all = db.Events.Include(e => e.Genre).Include(e => e.Venue).OrderBy(t => t.StartDate).ToList();
                 var eventsToDisplay = new HomePageViewModel() { Event = all };
                 // add the menu to cache
 
@@ -106,7 +106,7 @@ namespace McStanleyBar.Controllers
     // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public ActionResult Edit([Bind(Include = "Id,Title,StartTime,EndTime,GenreId,VenueId")] Events events)
+    public ActionResult Edit([Bind(Include = "Id,Title,StartTime,StartDate,GenreId,VenueId")] Events events)
     {
         if (ModelState.IsValid)
         {

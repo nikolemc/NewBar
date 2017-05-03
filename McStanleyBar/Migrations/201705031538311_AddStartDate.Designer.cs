@@ -7,13 +7,13 @@ namespace McStanleyBar.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class update2 : IMigrationMetadata
+    public sealed partial class AddStartDate : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(update2));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddStartDate));
         
         string IMigrationMetadata.Id
         {
-            get { return "201705031408339_update2"; }
+            get { return "201705031538311_AddStartDate"; }
         }
         
         string IMigrationMetadata.Source

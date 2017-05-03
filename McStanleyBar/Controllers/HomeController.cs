@@ -31,7 +31,7 @@ namespace McStanleyBar.Controllers
             var eventsFromCache = HttpRuntime.Cache["events"] as HomePageViewModel;
             if (eventsFromCache == null)
             {
-                var events = db.Events.Include(e => e.Genre).Include(e => e.Venue).OrderBy(t => t.StartTime).ToList();
+                var events = db.Events.Include(e => e.Genre).Include(e => e.Venue).OrderBy(t => t.StartDate).ToList();
                 var eventsToDisplay = new HomePageViewModel(){Event = events};
                 // add the menu to cache
                 HttpRuntime.Cache.Add(

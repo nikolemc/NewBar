@@ -14,8 +14,11 @@ namespace McStanleyBar.Models
 
         [Required]
         [DataType(DataType.Date)]
+        public DateTime? StartDate { get; set; }
+
+        [Required]
+        [DataType(DataType.Time)]
         public DateTime? StartTime { get; set; }
-        public DateTime? EndTime { get; set; }
 
         public string Img { get; set; }
 
