@@ -1,0 +1,7 @@
+﻿@model McStanleyBar.Models.Order
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Confirm your order</h2>
+@Html.Partial("_shoppingCart", Model)
+@Html.ActionLink("Complete Purchase", "Purchase")

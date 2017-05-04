@@ -12,7 +12,10 @@ namespace McStanleyBar.Models
         public string Name { get; set; }
         public string Address { get; set; }
         public int CapacitySize { get; set; }
-        
+
+
+        public virtual ICollection<Events> Events { get; set; } = new HashSet<Events>();
+
 
     }
 }

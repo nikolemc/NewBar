@@ -13,6 +13,8 @@ namespace McStanleyBar.Controllers
 {
     public class EventsController : Controller
     {
+        //private string eventCacheKey = CacheKeys.Events();
+
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Events
@@ -48,6 +50,7 @@ namespace McStanleyBar.Controllers
         // POST: Events/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Title,StartTime,StartDate,GenreId,VenueId")] Events events)
@@ -56,33 +59,32 @@ namespace McStanleyBar.Controllers
             {
                 db.Events.Add(events);
                 db.SaveChanges();
-                //clear cache
+
+                db.Events.Add(events);
+                db.SaveChanges();
+                // clear my cache of the old stuff, 
                 HttpRuntime.Cache.Remove("events");
-                //re add to my chache
-
-                var all = db.Events.Include(e => e.Genre).Include(e => e.Venue).OrderBy(t => t.StartDate).ToList();
-                var eventsToDisplay = new HomePageViewModel() { Event = all };
-                // add the menu to cache
-
+                // re-add to the my cache
+                var eventdata = new ApplicationDbContext().Events.Include(i => i.Genre).Include(i => i.Venue).ToList();
+                // add to cache
                 HttpRuntime.Cache.Add(
                     "events",
-                    eventsToDisplay,
+                    eventdata,
                     null,
                     DateTime.Now.AddDays(7),
                     new TimeSpan(),
                     System.Web.Caching.CacheItemPriority.High, //High- means that it is one of the last things to be removed from the cache
-                    null);
+                   null
+              );
+                return RedirectToAction("Index");
 
             }
-            //return View(eventsFromCache);
-            return RedirectToAction("Index");
-
-
             ViewBag.GenreId = new SelectList(db.Genres, "Id", "GenreName", events.GenreId);
             ViewBag.VenueId = new SelectList(db.Venues, "Id", "Name", events.VenueId);
             return View(events);
         }
-    
+           
+
 
     // GET: Events/Edit/5
     public ActionResult Edit(int? id)

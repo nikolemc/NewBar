@@ -208,13 +208,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201705031538311_AddStartDate.cs" />
-    <Compile Include="Migrations\201705031538311_AddStartDate.Designer.cs">
-      <DependentUpon>201705031538311_AddStartDate.cs</DependentUpon>
+    <Compile Include="Migrations\201705041845343_init2.cs" />
+    <Compile Include="Migrations\201705041845343_init2.Designer.cs">
+      <DependentUpon>201705041845343_init2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201705031846401_Update-Database.cs" />
-    <Compile Include="Migrations\201705031846401_Update-Database.Designer.cs">
-      <DependentUpon>201705031846401_Update-Database.cs</DependentUpon>
+    <Compile Include="Migrations\201705042021426_AddedHTMLButtons.cs" />
+    <Compile Include="Migrations\201705042021426_AddedHTMLButtons.Designer.cs">
+      <DependentUpon>201705042021426_AddedHTMLButtons.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -223,6 +223,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\Ticket.cs" />
     <Compile Include="Models\Venues.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -231,8 +232,6 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\font-awesome.css" />
-    <Content Include="Content\font-awesome.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -242,9 +241,6 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="fonts\fontawesome-webfont.ttf" />
-    <Content Include="fonts\fontawesome-webfont.woff" />
-    <Content Include="fonts\fontawesome-webfont.woff2" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\formatdate.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -254,14 +250,12 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\main.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\moment.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Scripts\shoppingcart.js" />
-    <Content Include="Web.config">
-      <SubType>Designer</SubType>
-    </Content>
+    <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -311,10 +305,9 @@
     <Content Include="Views\Venues\Edit.cshtml" />
     <Content Include="Views\Venues\Index.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
-    <Content Include="Views\Shared\_ShoppingCart.cshtml" />
-    <Content Include="Views\Shared\_checkoutDisplayCart.cshtml" />
-    <Content Include="Views\Shared\_cartRow.cshtml" />
-    <Content Include="Views\Shared\_ShoppingCartCounter.cshtml" />
+    <Content Include="Views\Shared\_shoppingCart.cshtml" />
+    <Content Include="Views\Checkout\Index.cshtml" />
+    <Content Include="Views\Checkout\Purchase.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -335,11 +328,11 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201705031538311_AddStartDate.resx">
-      <DependentUpon>201705031538311_AddStartDate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201705041845343_init2.resx">
+      <DependentUpon>201705041845343_init2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201705031846401_Update-Database.resx">
-      <DependentUpon>201705031846401_Update-Database.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201705042021426_AddedHTMLButtons.resx">
+      <DependentUpon>201705042021426_AddedHTMLButtons.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

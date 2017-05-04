@@ -1,17 +1,25 @@
 ﻿@model McStanleyBar.Models.Order
-
-@if (Model.Items.Any())
-{
-    <h3>Your Cart:</h3>
-    <ul>
-        @foreach (var item in Model.Items)
+<h3>Cart contains</h3>
+<ul>
+    @if (Model == null || Model.Tickets == null || Model.Tickets.Count == 0)
+    {
+        <li>nothing in your cart</li>
+    }
+    else
+    {
+        foreach (var item in Model.Tickets)
         {
-            <li>@item.Title</li>
+            <li>@item.Event.Title</li>
         }
-    </ul>
-    @Html.ActionLink("Checkout", "Checkout", "Home")
-}
-else
-{
-    <h4><i>your cart is empty :-(</i></h4>
-}
+    }
+</ul>
+<div>
+    @if (Model == null)
+    {
+        <span>0</span>
+    }
+    else
+    {
+        @Html.DisplayFor(m => m.TotalPrice, Model.TotalPrice)
+    }
+</div>

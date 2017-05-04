@@ -1,11 +1,15 @@
 ﻿@model McStanleyBar.ViewModels.HomePageViewModel
-
 @using Microsoft.AspNet.Identity;
 @{
     ViewBag.Title = "Home Page";
 }
-
-
+<div>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+        view shopping cart <i class="glyphicon glyphicon-shopping-cart"></i>
+        <span id="counter">@Model.ShoppingCart.Tickets.Count</span>
+    </button>
+</div>
 @foreach (var Event in Model.Event)
 {
     <div class="container">
@@ -19,32 +23,35 @@
                         </time>
                         <img alt="EventImage" src="@Event.Img" />
                         <div class="info">
-                            <h2 class="title">@Event.Title</h2> <h2 class="title pull-right">$@Event.Price</h2>
+                            <h2 class="title">@Event.Title</h2>
                             <p class="venue">@Event.Venue.Name</p>
                             <p class="genre">@Event.Genre.GenreName</p>
                             <p class="startTime">@Event.StartTime</p>
                         </div>
-                        <div class="price pull-right" id="ShoppingCartCounter-@Event.Id">
-                        @Html.Partial("_ShoppingCartCounter", Event)                                                
-                        </div>
-
-                        <div class="price pull-right" id="checkOutCart">
-                            <button id="btn" type="button" class="cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Check Out</button>
-                        </div>
                     </li>
-
                 </ul>
+                <div class="media-left">
+                    <button class="btn btn-primary" onclick="addToCart(@Event.Id)">Add To Cart</button>
+                </div>
             </div>
         </div>
     </div>
-
-    <div>
-        @*load shopping cart*@
-    </div>
-    
 }
-<div class="row">
-    <div class="col-lg-12" id="shoppingCart">
-        @Html.Partial("_shoppingCart", Model.ShoppingCart)
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Shopping cart!</h4>
+            </div>
+            <div class="modal-body" id="modelBody">
+                @Html.Partial("_shoppingCart", Model.ShoppingCart)
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                @Html.ActionLink("Checkout", "Index", "Checkout", null, new { @type = "button", @class = "btn btn-success" })
+            </div>
+        </div>
     </div>
 </div>

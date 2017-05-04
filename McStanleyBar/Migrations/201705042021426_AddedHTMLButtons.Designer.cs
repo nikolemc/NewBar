@@ -7,13 +7,13 @@ namespace McStanleyBar.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class UpdateDatabase : IMigrationMetadata
+    public sealed partial class AddedHTMLButtons : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(UpdateDatabase));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddedHTMLButtons));
         
         string IMigrationMetadata.Id
         {
-            get { return "201705031846401_Update-Database"; }
+            get { return "201705042021426_AddedHTMLButtons"; }
         }
         
         string IMigrationMetadata.Source

@@ -5,7 +5,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
-
 namespace McStanleyBar.Models
 {
     public class Order
@@ -16,14 +15,10 @@ namespace McStanleyBar.Models
 
         public bool Fulfilled { get; set; } = false;
 
-        public string Location { get; set; }
+        public string UserId { get; set; }
+        public ApplicationUser User { get; set; }
 
-        public string CustomerId { get; set; }
-
-        [ForeignKey("CustomerId")]
-        public virtual ApplicationUser User { get; set; }
-
-        public virtual ICollection<Events> Items { get; set; } = new HashSet<Events>();
+        public virtual ICollection<Ticket> Tickets { get; set; } = new HashSet<Ticket>();
 
         [DisplayFormat(DataFormatString = "{0:C}")]
         [NotMapped]
@@ -31,7 +26,11 @@ namespace McStanleyBar.Models
         {
             get
             {
-                return Items.Sum(s => s.Price);
+                if (Tickets == null)
+                {
+                    return 0;
+                }
+                return Tickets.Sum(s => s.PurchasePrice);
             }
         }
 

@@ -11,6 +11,8 @@ namespace McStanleyBar.Models
         public int Id { get; set; }
         public string GenreName { get; set; }
 
-     
+        public virtual ICollection<Events> Events { get; set; } = new HashSet<Events>();
+
+
     }
 }
